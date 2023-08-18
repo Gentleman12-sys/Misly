@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        body,
+        td,
+        th {
+            font-family: Georgia, Times New Roman, Times, serif;
+            font-size: 1em;
+        }
+
+        body {
+            background-color: #CCC;
+            margin: 1em 1em 0 1em;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin: 0;
+        }
+
+        h2 {
+            text-align: right;
+            font-style: italic;
+            font-weight: normal;
+            font-size: 1em;
+        }
+
+        .main {
+            background-color: #FFF;
+            width: 50em;
+            padding: 1em;
+            margin: 0 auto;
+        }
+
+        .spon {
+            width: 50em;
+            padding: 1em;
+            margin: 0 auto;
+            text-align: right;
+        }
+
+        .rem {
+            width: 50em;
+            padding: 0 1em 0 0;
+            margin: 0 auto;
+            text-align: right;
+        }
+
+        .mbTable {
+            margin: 0 auto;
+            border: 5px solid blue;
+        }
+
+        #mindButton {
+            margin: 0 auto;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        #mindButton input,
+        #mindButton img {
+            padding: 1em;
+        }
+
+        #goog {
+            margin: 0.5em auto;
+            text-align: center;
+        }
+
+        .numbers {
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        .numbers td {
+            margin: 0;
+        }
+
+        .symtd {
+            background-color: #EEE;
+            border-width: 1px 1px 1px 0;
+            border-style: solid;
+            border-color: #000;
+            padding: 0.1em;
+        }
+
+        .numtd {
+            font-size: 1.2em;
+            background-color: #DDD;
+            border-width: 1px 0 1px 1px;
+            border-style: solid;
+            border-color: #000;
+            padding: 0.4em;
+
+        }
+
+        #mindTable {
+            width: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <ol>
+            <li>Задумайте любое двухзначное число <em>(например 54)</em>.</li>
+            <li>Вычтите из него составляющие его цифры <em>(Например 54 - 5 - 4 = 45)</em>.</li>
+            <li>Найдите это число в таблице и символ, которому оно соответствует.</li>
+            <li><strong>Вообразите мысленно себе этот значок и щелкните по квадрату.</strong> В
+                нем появится этот значок.</li>
+        </ol>
+        <form action="" method="post">
+            {% csrf_token %}
+            <table class="mbTable">
+                <tbody>
+                    <tr>
+                        <td id="mindButton"><input name="imageField" type="image"
+                                src="https://mindreader.hacktest.net/e.gif" width="32" height="32" border="0"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <div id="mindTable">
+            <table class="numbers">
+                <tbody>
+                    {{ tables|safe }}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
